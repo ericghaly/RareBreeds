@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
-{% block title %}Rare Breeds{% endblock %}
+{% block title %}Flasky{% endblock %}
 
 {% block page_content %}
 
@@ -20,6 +20,8 @@
 
     <br>
 
+    <h2 align="center"> Posts </h2>
+
     <div style="margin-top:10px;" class="list-group">
 
     {% for post in userPosts %}
@@ -31,10 +33,29 @@
 
     </div>
 
-    {% if allDetails.is_musician == True %}
+    <h2 align="center"> Messages </h2>
+
+    <div style="margin-top:10px;" class="list-group">
+
+
+    {% for message in userMessages %}
+    <a href="/New Message/{{message.whoPostedID}}" align="center" class="list-group-item list-group-item-action ">
+    <h5 class="list-group-item-heading">{{ message.whoPosted }}</h5>
+    <p class="list-group-item-text">{{ message.content }}</p>
+    </a>
+
+    {% endfor %}
+
+    </div>
+
+    {% if allDetails.is_breeder == True %}
     <p align="center" class="navbar-btn" >
-                        <a href="/New Genre" class="btn btn-primary"><b>Don't see a breed for you? Enter a new breed here!</b></a>
+                        <a href="/New Breed" class="btn btn-primary"><b>Don't see a Breed for you? Enter a new Breed here!</b></a>
     </p>
+
+     <p align ="center" class="navbar-btn" style="margin-left:4px;">
+                        <a href="/Sell Dog List" class="btn btn-primary" ><b>Sell Dog</b></a>
+                        </p>
     {% else %}
 
     {% endif %}

@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
-{% block title %}Rare Breeds{% endblock %}
+{% block title %}Flasky{% endblock %}
 
 {% block page_content %}
 <br><br><br><br><br>
 <div class="page-header">
     <h1 align="center">This is the Breeder List!</h1>
 
-    {% for artist in allArtists %}
+    {% for breeder in allBreeders %}
      <p align="center" class="navbar-btn" >
-                        <a href="/Breeder Details/{{artist.name}}" class="btn btn-primary"><b>{{ artist.name }}</b></a>
+                        <a href="/Breeder Details/{{breeder.name}}" class="btn btn-primary"><b>{{ breeder.name }}</b></a>
     </p>
     {% endfor %}
 
@@ -21,9 +21,9 @@
 
     {% if session['logged_in'] %}
     <h4 align="center">Here are breeders in your area!</h4>
-    {% for local in localArtists %}
+    {% for local in localBreeders %}
     <p align="center" class="navbar-btn" >
-                        <a href="/Artist Details/{{local.name}}" class="btn btn-primary"><b>{{ local.name }}</b></a>
+                        <a href="/Breeder Details/{{local.name}}" class="btn btn-primary"><b>{{ local.name }}</b></a>
     </p>
 
     {% endfor %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+
+<br><br><br><br><br><br>
+<div class="page-header">
+
+    <h2 align="center"> User name</h2>
+
+   <h4 align="center"> {{ allDetails.name }}</h4>
+
+    <h2 align="center"> Dogs to Sell!</h2>
+
+    <div style="margin-top:10px;" class="list-group">
+
+    {% for post in userPosts %}
+
+        {% if post.sold == False %}
+
+        <a href="/Show Post Sell/{{post.id}}" align="center" class="list-group-item list-group-item-action ">
+        <h5 class="list-group-item-heading">{{ post.name }}</h5>
+        <p class="list-group-item-text">{{ post.content }}</p>
+        </a>
+
+        {% endif %}
+
+        <br>
+
+    {% endfor %}
+
+    </div>
+
+
+</div>
+{% endblock %}

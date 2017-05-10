@@ -10,7 +10,7 @@
 <link href="/static/css/rowc.css" rel="stylesheet" >
 <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" >
 <link href="/static/css/bootstrap-social.css" rel="stylesheet" >
-<link href="/static/css/custerd.css" rel="stylesheet" >
+<link href="/static/css/customs.css" rel="stylesheet" >
 <link href='http://fonts.googleapis.com/css?family=Quicksand' rel="stylesheet" type="text/css">
 
 {% endblock %}
@@ -26,45 +26,57 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-            <a class="navbar-brand" href="/" class="pull-left"><img src="/static/img1/bdr_one_color_logo_mark_small.png"></a>
+            <a class="navbar-brand" href="/" class="pull-left"><b> Rare Breeds</b></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul style="margin-top:5px;" class="nav navbar-nav navbar-right">
                 <li>
                       <p class="navbar-btn" >
-                        <a href="/" class="btn btn-primary"><b>HOME</b></a>
+                        <a href="/" class="btn btn-primary"><b>Home</b></a>
                         </p>
                     </li>
                     <li>
                       <p class="navbar-btn" style="margin-left:4px;">
-                        <a href="/All Breeds" class="btn btn-primary" ><b>ALL BREEDS</b></a>
+                        <a href="/All Boards" class="btn btn-primary" ><b>Breeds</b></a>
                         </p>
                     </li>
                     <li>
                       <p class="navbar-btn" style="margin-left:4px;">
-                        <a href="/Breeder List" class="btn btn-primary" ><b>BREEDER LIST</b></a>
+                        <a href="/Breeder List" class="btn btn-primary" ><b>Breeder List</b></a>
                         </p>
                     </li>
+                    <li>
+                      <p class="navbar-btn" style="margin-left:4px;">
+                        <a href="/Search" class="btn btn-primary" ><b>Search</b></a>
+                        </p>
+                    </li>
+                    {% if session['logged_in'] and session['is_breeder']%}
+                    <li>
+                      <p class="navbar-btn" style="margin-left:4px;">
+                        <a href="/New Post" class="btn btn-primary" ><b>New Post</b></a>
+                        </p>
+
+                    </li>
+                    {% else %}
+
+                    {% endif %}
+
                     {% if session['logged_in'] %}
+
                     <li>
                       <p class="navbar-btn" style="margin-left:4px;">
-                        <a href="/New Post" class="btn btn-primary" ><b>NEW POST</b></a>
+                        <a href="/User Page" class="btn btn-primary" ><b>Your Profile</b></a>
                         </p>
                     </li>
                     <li>
                       <p class="navbar-btn" style="margin-left:4px;">
-                        <a href="/User Page" class="btn btn-primary" ><b>YOUR PROFILE</b></a>
-                        </p>
-                    </li>
-                    <li>
-                      <p class="navbar-btn" style="margin-left:4px;">
-                        <a href="/Logout" class="btn btn-primary" ><b>LOG OUT</b></a>
+                        <a href="/Logout" class="btn btn-primary" ><b>Logout</b></a>
                         </p>
                     </li>
                     {% else %}
                     <li>
                       <p class="navbar-btn" style="margin-left:4px;">
-                        <a href="/Login" class="btn btn-primary" ><b>LOG IN</b></a>
+                        <a href="/Login" class="btn btn-primary" ><b>Login</b></a>
                         </p>
                     </li>
                     {% endif %}
@@ -96,18 +108,19 @@
                     <!-- Contact Details Column -->
 
 
-                <h4>Business Name
+                <h4>Buyrarebreeds.com
                 </h4>
 
                 <p><i class="fa fa-phone"></i>
                     <abbr title="Phone">Phone</abbr>: (to)-be-announced  |
                 <i class="fa fa-envelope-o"></i>
-                    <abbr title="Email">Email</abbr>: <a href="mailto:bruchy89@gmail.com"><b>Our Team Email</b></a>
+                    <abbr title="Email">Email</abbr>: <a href="mailto:#"><b>Our Team Email</b></a>
                 </p>
 
 
           <div style="margin-bottom:3px;" class="col-md-12" style="margin-right:45px;">
                     <ul class="social-network social-circle">
+                        <li><a href="#" class="icoFacebook" title="Facebook" target="blank_"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#" class="icoFacebook" title="Facebook" target="blank_"><i class="fa fa-facebook"></i></a></li>
                         <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>

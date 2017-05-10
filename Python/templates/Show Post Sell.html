@@ -7,14 +7,6 @@
 <br><br><br><br>
 <div class="page-header">
 
-    {% if postDetails.sold == True %}
-
-    <h3 align="center"> SOLD </h3>
-
-    {% else %}
-    <h3 align="center"> FOR SALE </h3>
-    {% endif %}
-
     <h3 align="center"> Post name </h3>
 
     <h4 align="center">{{ postDetails.name }}</h4>
@@ -41,18 +33,9 @@
     {% endfor %}
 
 </div>
-{% if session['logged_in'] %}
+
 {{ wtf.quick_form(form) }}
 
-<br>
-
-<a href="/New Message/{{postDetails.user_id}}" class="btn btn-primary" ><b>SEND MESSAGE TO BREEDER</b></a>
-
-<br>
-
-{% else %}
-<h4>Not signed in, commenting/messaging disabled</h4>
-{% endif %}
 <br>
 
 {% endblock %}
