@@ -1,1 +1,10 @@
-test
+Our acceptance tests must abide by the following criteria:
+  1. Must be able to create User accounts.
+    a. Determine is User is breeder or not.
+  2. User should be able to view all posts.
+  3. User should be able to create new posts.
+  4. User should be able to see breeders in their area (via zip code).
+  5. User should be able to comment on any posts that they see.
+  6. User should have a form of communication with a breeder.
+  7. Breeder should be able to add breeds that do not already appear on the site.
+  
