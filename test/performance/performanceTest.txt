@@ -1,1 +1,3 @@
-In order to test the performance of our system we would add an extreme amount of Users and Breeds. This will test to see that our system can handle many User profiles and Breeds while still returning results in a timely fashion.
+In order to test the performance of our system we would add an extreme amount of Users and Breeds. 
+This will test to see that our system can handle many User profiles and Breeds while still returning 
+results in a timely fashion.
