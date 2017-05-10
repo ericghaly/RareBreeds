@@ -22,6 +22,19 @@ moment = Moment(app)
 db = SQLAlchemy(app)
 
 class Genre(db.Model):
+    """
+<p>class Genre</p>
+<p>Class constructor that returns the genre class. The id and name are
+dependent on the database entries, and posts made are in relation
+to the class itself.</p>
+<ul>
+    <li>:param id       id of the classification</li>
+    <li>:param name     name of the classification</li>
+    <li>:param posts    posts of the classification</li>
+    <li>:return Genre   returns Genre class</li>
+</ul>
+<hr>
+    """
     __tablename__ = 'genres'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True)
@@ -31,6 +44,24 @@ class Genre(db.Model):
         return '<Genre %r>' % self.name
 
 class User(db.Model):
+    """
+<p>class User</p>
+<p>Class constructor that returns the user class. The parameters id,
+name, password, homeTown, bio, and is_musician are all info about
+the user. Posts and comments are items the user has made themselves.</p>
+<ul>
+    <li>:param id           id of the user</li>
+    <li>:param name         name of the user</li>
+    <li>:param password     password of the user</li>
+    <li>:param homeTown     location of the user</li>
+    <li>:param bio          description of the user</li>
+    <li>:param is_musician  are they or are they not? (/boolean)</li>
+    <li>:param posts        posts the user has made</li>
+    <li>:param comments     comments the user has made</li>
+    <li>:return User        returns User class</li>
+</ul>
+<hr>
+    """
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), unique=True)
@@ -45,6 +76,23 @@ class User(db.Model):
         return '<User %r>' % self.name
 
 class Post(db.Model):
+    """
+<p>class Post</p>
+<p>Class constructor that returns the post class. The id, genre_id,
+user_id, and name are all information to help identify the post,
+while the content, votes, and comments are a part of the post.</p>
+<ul>
+    <li>:param id           id of the post</li>
+    <li>:param genre_id     id of the post's classification</li>
+    <li>:param user_id      person who wrote the post</li>
+    <li>:param name         name of the post</li>
+    <li>:param content      the post itself</li>
+    <li>:param votes        public votes on the post</li>
+    <li>:param comments     comments on the post</li>
+    <li>:return Post        returns Post class</li>
+</ul>
+<hr>
+    """
     __tablename__ = 'posts'
     id = db.Column(db.Integer, primary_key=True)
     genre_id = db.Column(db.Integer, db.ForeignKey('genres.id'))
@@ -58,6 +106,21 @@ class Post(db.Model):
         return '<Post %r>' % self.name
 
 class Comment(db.Model):
+    """
+<p>class Comment</p>
+<p>Class constructor that returns the comment class. The id, posts_id,
+and user_id all help identify the specific comment, while the content
+and whoPosted are about the comment itself.</p>
+<ul>
+    <li>:param id           id of the comment</li>
+    <li>:param content      the comment itself</li>
+    <li>:param whoPosted    user who made the comment</li>
+    <li>:param posts_id     id of the post</li>
+    <li>:param user_id      id of the user who made the comment</li>
+    <li>:return Comment     returns Comment class</li>
+</ul>
+<hr>
+    """
     __tablename__ = 'comments'
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(64))
@@ -235,4 +298,27 @@ def index():
 
 
 if __name__ == '__main__':
+        f = open('docs.html', 'w')
+    top = """<html>
+<head></head>
+<body>"""
+    bottom = """</body>
+</html>"""
+
+    f.truncate()
+    f.write(top)
+
+    f.write(Genre.__doc__)
+    f.write(User.__doc__)
+    f.write(Post.__doc__)
+    f.write(Comment.__doc__)
+
+    f.write(bottom)
+    f.close()
+
+    print(Genre.__doc__)
+    print(User.__doc__)
+    print(Post.__doc__)
+    print(Comment.__doc__)
+
     app.run()
